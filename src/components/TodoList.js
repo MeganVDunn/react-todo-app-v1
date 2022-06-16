@@ -3,26 +3,26 @@ import Todo from './Todo'
 import TodoForm from './TodoForm'
 
 function TodoList() {
-    const [todos, setTodos] = useState([])
+    const [todos, setTodos] = useState([]);
 
     const addTodo = todo => {
         if(!todo.text || /^\s*$/.test(todo.text)){
-            return
+            return;
         }
         
-    const newTodos = [todo, ...todos]
+    const newTodos = [todo, ...todos];
 
-    setTodos(newTodos)
+    setTodos(newTodos);
     };
 
     const completeTodo = id => {
         let updatedTodos = todos.map(todo => {
-        if (todo.id ==== id) {
-            todo.isComplete =!todo.isComplete
+        if (todo.id === id) {
+            todo.isComplete = !todo.isComplete
         }
-        return todo
+        return todo;
         })
-
+        setTodos(updatedTodos);
     }
 
   return (
@@ -31,7 +31,7 @@ function TodoList() {
         <TodoForm onSubmit={addTodo} />
         <Todo todos={todos} completeTodo={completeTodo} />
     </div>
-  )
+  );
 }
 
 export default TodoList
